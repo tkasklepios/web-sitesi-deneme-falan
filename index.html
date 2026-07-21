@@ -92,9 +92,52 @@
   </header>
 
   <!--
-    NOT: Şu an sadece <header> bölümünü istediğin için gövdeyi burada bıraktık.
-    İlerleyen aşamalarda ana içerik için <main>, alt bilgi için <footer> ekleyeceğiz.
+    ===================== HERO SECTION (Karşılama Ekranı) =====================
+    <section> => Sayfayı anlamlı bölümlere (parçalara) ayıran semantik etikettir.
+    Her <section>, kendi içinde bir konu bütünlüğü taşır.
+    class="hero" => Bu bölüme "hero" adını verdik. İleride CSS ile SADECE bu
+    bölümü hedefleyip (örneğin arka plan resmi, büyük yazılar) şekillendireceğiz.
+
+    "Hero" (kahraman) bölümü; ziyaretçinin siteye girer girmez gördüğü,
+    en dikkat çekici karşılama alanıdır.
   -->
+  <section class="hero">
+
+    <!--
+      1) ANA BAŞLIK
+      <h1> => Sayfadaki en önemli / en büyük başlıktır ("Heading 1").
+      Bir sayfada genellikle SADECE BİR TANE <h1> bulunur (SEO için önemlidir).
+    -->
+    <h1>Mülkünüz İçin Güvenli, Dayanıklı ve Estetik Çit Çözümleri</h1>
+
+    <!--
+      2) AÇIKLAMA PARAGRAFI
+      <p> => "Paragraph" (paragraf). Normal metin/açıklama bloklarını yazmak için kullanılır.
+    -->
+    <p>
+      Panel çit, çim çit ve tel örgülerde 15 yılı aşkın tecrübe,
+      yüksek kalite standartları ve dayanıklı çözümler sunuyoruz.
+    </p>
+
+    <!--
+      3) AKSİYON BUTONLARI (Call To Action - CTA)
+      <div> => Butonları bir arada gruplamak için kullandığımız kutu.
+      İki butonu tek bir grupta topladık ki ileride CSS ile yan yana dizmek kolay olsun.
+    -->
+    <div class="hero-buttons">
+      <!--
+        NOT: Buradaki iki eleman iki farklı yöntemle yapıldı; ikisini de öğrenmen için:
+
+        - Birincisi <a> (link) etiketidir ama class="btn" ile buton GİBİ görünecek.
+          Kullanıcıyı başka bir sayfaya YÖNLENDİRMEK için en doğru seçim linktir.
+        - İkincisi gerçek bir <button> etiketidir. Bir İŞLEM başlatmak
+          (örn. teklif formu açmak) için uygundur.
+      -->
+      <a href="urunlerimiz.html" class="btn btn-primary">Ürünlerimizi İnceleyin</a>
+      <button type="button" class="btn btn-secondary">Fiyat Teklifi Alın</button>
+    </div>
+
+  </section>
 
 </body>
 </html>
