@@ -1,0 +1,100 @@
+<!--
+  <!DOCTYPE html> => Tarayıcıya "Bu belge HTML5 formatındadır" der.
+  Her HTML5 belgesinin en tepesinde bulunmalıdır.
+-->
+<!DOCTYPE html>
+
+<!--
+  <html> => Tüm sayfayı saran ana (kök) etikettir.
+  lang="tr" => Sayfanın dilinin Türkçe olduğunu belirtir.
+  Bu; arama motorları ve ekran okuyucular (görme engelliler için) açısından önemlidir.
+-->
+<html lang="tr">
+
+<!--
+  <head> => Sayfanın "beyni". Burada yazılanlar ekranda GÖRÜNMEZ.
+  Sayfa ayarlarını, başlığını ve stil bağlantılarını içerir.
+-->
+<head>
+
+  <!--
+    <meta charset="UTF-8"> => Karakter kodlamasını ayarlar.
+    UTF-8 sayesinde Türkçe karakterler (ç, ş, ğ, ı, ö, ü) düzgün görünür.
+  -->
+  <meta charset="UTF-8">
+
+  <!--
+    Bu meta etiketi, sitenin telefon ve tablet gibi mobil cihazlarda
+    doğru ölçekte (responsive) görünmesini sağlar.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    <title> => Tarayıcı sekmesinde (üstteki küçük başlıkta) görünen yazıdır.
+  -->
+  <title>Akdeniz Çit & Panel</title>
+
+</head>
+
+<!--
+  <body> => Sayfanın "gövdesi". Ekranda GÖRÜNEN her şey (yazılar, resimler,
+  butonlar, menüler) bu etiketin içine yazılır.
+-->
+<body>
+
+  <!--
+    <header> => Sayfanın en üst bölümüdür (tepe/başlık alanı).
+    Genellikle logo, menü ve iletişim butonlarını barındırır.
+    "Semantik" bir etikettir; yani ismi, ne işe yaradığını anlatır.
+  -->
+  <header>
+
+    <!-- 1) SOL TARAF: Firma Adı (Logo yerine geçen metin) -->
+    <!--
+      <div> => İçeriği gruplamak için kullanılan anlamsal olmayan bir kutudur.
+      Burada logo alanını gruplamak için kullandık.
+    -->
+    <div class="logo">
+      <!--
+        <a> => Bağlantı (link) etiketidir. href, gidilecek adresi belirtir.
+        Logoya tıklayınca genellikle ana sayfaya dönülür (href="index.html").
+      -->
+      <a href="index.html">Akdeniz Çit &amp; Panel</a>
+    </div>
+
+    <!-- 2) ORTA: Gezinti Menüsü -->
+    <!--
+      <nav> => "Navigation" (gezinti) kelimesinin kısaltmasıdır.
+      Sayfanın ana menü linklerini içeren semantik etikettir.
+    -->
+    <nav>
+      <!--
+        <ul> => "Unordered List" (sırasız liste). Menü öğelerini alt alta/yan yana
+        listelemek için kullanılır. Öğelerin başında madde işareti çıkar (CSS ile kaldırılabilir).
+        <li> => "List Item" (liste öğesi). Listedeki her bir maddedir.
+      -->
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="kurumsal.html">Kurumsal</a></li>
+        <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </nav>
+
+    <!-- 3) SAĞ TARAF: Hızlı Teklif Al Butonu -->
+    <!--
+      <button> => Tıklanabilir bir düğme oluşturur.
+      Genellikle bir işlem başlatmak (form gönderme, pencere açma vb.) için kullanılır.
+    -->
+    <button type="button">Hızlı Teklif Al</button>
+
+  </header>
+
+  <!--
+    NOT: Şu an sadece <header> bölümünü istediğin için gövdeyi burada bıraktık.
+    İlerleyen aşamalarda ana içerik için <main>, alt bilgi için <footer> ekleyeceğiz.
+  -->
+
+</body>
+</html>
