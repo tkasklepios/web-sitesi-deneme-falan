@@ -1,0 +1,129 @@
+/* ============================================================
+   AKDENIZ ÇİT & PANEL - style.css
+   Adım 1: Genel Sıfırlama (Reset) + Header Stili
+   ============================================================ */
+
+
+/* ============================================================
+   1) GENEL SIFIRLAMA (RESET & BASE)
+   ============================================================
+   Tarayıcılar bazı etiketlere (body, h1, p, ul...) kendiliğinden
+   boşluk (margin/padding) verir. Her tarayıcı biraz farklı verdiği için,
+   temiz bir başlangıç yapmak adına hepsini sıfırlıyoruz.
+
+   * (yıldız) => "Evrensel seçici" (universal selector).
+   Sayfadaki TÜM elemanları seçer ve kuralı hepsine uygular.
+*/
+* {
+  margin: 0;              /* Dış boşlukları sıfırla */
+  padding: 0;             /* İç boşlukları sıfırla */
+
+  /* box-sizing: border-box => Bir elemanın genişliğini hesaplarken
+     padding (iç boşluk) ve border (kenarlık) değerlerini de
+     TOPLAM genişliğe DAHİL eder. Böylece "100px dedim ama 120px oldu"
+     sürprizi yaşanmaz. Modern CSS'in olmazsa olmazıdır. */
+  box-sizing: border-box;
+}
+
+/* body => Sayfanın gövdesi. Genel (varsayılan) yazı tipi ayarlarını
+   buraya yazarız; alttaki tüm elemanlar bunu "miras alır" (inherit). */
+body {
+  /* font-family => Yazı tipi. Arial bulunamazsa sırayla sonrakine geçer;
+     sans-serif = "tırnaksız", modern görünümlü genel font ailesidir. */
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* line-height => Satır yüksekliği. 1.6 => yazılar arası ferah boşluk,
+     okunabilirliği artırır. */
+  line-height: 1.6;
+
+  /* color => Genel yazı rengi (koyu gri, saf siyahtan daha yumuşaktır). */
+  color: #333333;
+}
+
+
+/* ============================================================
+   2) HEADER STİLİ
+   ============================================================ */
+
+/* header => <header> etiketini seçer. */
+header {
+  /* Arka plan rengi: koyu antrasit/füme (kurumsal ve şık durur). */
+  background-color: #1f2933;
+
+  /* Yazı rengi: header içindeki metinler açık renk (beyazımsı) olsun. */
+  color: #ffffff;
+
+  /* İç boşluk: üst-alt 15px, sağ-sol 40px. Header'ın "nefes almasını" sağlar. */
+  padding: 15px 40px;
+
+  /* ---- FLEXBOX ----
+     display: flex => Bu elemanı bir "flex konteyneri" yapar.
+     Böylece İÇİNDEKİ 3 eleman (logo, nav, buton) YAN YANA dizilir.
+     (Normalde blok elemanlar alt alta dizilirdi.) */
+  display: flex;
+
+  /* justify-content: space-between => Elemanları yatayda dağıtır:
+     ilki en solda, sonuncusu en sağda, ortadaki(ler) aradaki boşluğa yayılır.
+     Sonuç: Logo SOLDA, menü ORTADA, buton SAĞDA. */
+  justify-content: space-between;
+
+  /* align-items: center => Elemanları dikeyde ortalar (hepsi aynı hizada durur). */
+  align-items: center;
+}
+
+/* ---- LOGO (Firma Adı) ---- */
+/* .logo => class="logo" olan elemanı seçer. (Nokta "." = class demektir.) */
+.logo a {
+  color: #ffffff;              /* Logo yazısı beyaz */
+  font-size: 24px;             /* Biraz büyük ve dikkat çekici */
+  font-weight: bold;           /* Kalın */
+  text-decoration: none;       /* Linkin altındaki çizgiyi kaldırır */
+}
+
+/* ---- NAVİGASYON MENÜSÜ ---- */
+/* nav ul => <nav> içindeki <ul> listesini seçer. */
+nav ul {
+  list-style: none;   /* Liste maddelerinin başındaki noktaları (•) kaldırır */
+  display: flex;      /* Menü öğelerini (li) de yan yana dizer */
+  gap: 25px;          /* Menü öğeleri arasına 25px boşluk koyar */
+}
+
+/* nav a => Menüdeki linkleri seçer. */
+nav a {
+  color: #ffffff;              /* Link yazıları beyaz */
+  text-decoration: none;       /* Alt çizgiyi kaldır */
+  font-size: 16px;
+
+  /* transition => Bir özellik değişirken (örn. hover'da renk) bu değişimi
+     ANİDEN değil, 0.3 saniyede YUMUŞAK geçişle yapar. Şık bir his verir. */
+  transition: color 0.3s;
+}
+
+/* nav a:hover => Fareyle üzerine GELİNDİĞİNDE uygulanacak stil.
+   ":hover" özel bir durumdur (pseudo-class). */
+nav a:hover {
+  color: #f0a500;   /* Üzerine gelince altın/turuncu renge döner (dikkat çeker) */
+}
+
+/* ---- "HIZLI TEKLİF AL" BUTONU ---- */
+/* header button => Header içindeki <button> etiketini seçer. */
+header button {
+  background-color: #f0a500;   /* Dikkat çekici altın/turuncu arka plan */
+  color: #1f2933;              /* Buton yazısı koyu (arka planla kontrast) */
+  border: none;                /* Butonun varsayılan kenarlığını kaldır */
+  padding: 10px 20px;          /* İç boşluk => butonu dolgun/tıklanabilir yapar */
+  border-radius: 25px;         /* Köşeleri yuvarlat (25px => hap/pill görünümü) */
+  font-size: 16px;
+  font-weight: bold;
+
+  /* cursor: pointer => Fare butonun üzerine gelince "el işareti"ne döner;
+     kullanıcıya "burası tıklanabilir" mesajını verir. */
+  cursor: pointer;
+
+  transition: background-color 0.3s;   /* Hover renk geçişi yumuşak olsun */
+}
+
+/* Butonun üzerine gelince rengini biraz koyulaştır (tıklanabilir hissi). */
+header button:hover {
+  background-color: #d18e00;
+}
