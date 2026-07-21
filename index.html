@@ -211,5 +211,106 @@
 
   </section>
 
+  <!--
+    ==================== İLETİŞİM BANDI (CTA) ====================
+    CTA = "Call To Action" (Harekete Geçirme Çağrısı).
+    Amacı: Ziyaretçiyi bir adım atmaya (iletişime geçmeye) yönlendirmektir.
+    <section class="cta"> => Ürünlerden ayrı, kendi başına bir çağrı bölümü olduğu
+    için yine semantik bir <section> kullandık.
+  -->
+  <section class="cta">
+
+    <!-- <h2> => Bölüm başlığı (sayfadaki başlık hiyerarşisini korur). -->
+    <h2>Projeniz İçin Fiyat Fikri Almak İster Misiniz?</h2>
+
+    <!-- <p> => Kısa açıklama / davet metni. -->
+    <p>Ölçülerinizi ve ihtiyacınızı bize iletin, uzman ekibimiz size en uygun teklifi hazırlasın.</p>
+
+    <!--
+      <a> => İletişim sayfasına YÖNLENDİREN link (buton görünümlü).
+      Yönlendirme olduğu için <button> değil <a> kullanıyoruz.
+    -->
+    <a href="iletisim.html" class="btn btn-primary">Bize Ulaşın / İletişim</a>
+
+  </section>
+
+  <!--
+    ======================= FOOTER (ALT BİLGİ) =======================
+    <footer> => Sayfanın en altındaki bilgi alanıdır (semantik etiket).
+    Genellikle: kısa tanıtım, hızlı menü, iletişim bilgileri ve telif hakkı bulunur.
+  -->
+  <footer>
+
+    <!--
+      <div class="footer-columns"> => Footer'ın üst kısmındaki 3 sütunu saran kutu.
+      İleride CSS ile bu 3 kutuyu yan yana (3 sütun) dizeceğiz.
+    -->
+    <div class="footer-columns">
+
+      <!-- SOL SÜTUN: Hakkımızda -->
+      <!--
+        <div class="footer-col"> => Tek bir footer sütununu temsil eder.
+        Üç sütuna da aynı class'ı verdik ki CSS ile hepsini birlikte hizalayabilelim.
+      -->
+      <div class="footer-col">
+        <!-- Footer içi başlıklar için <h4> kullandık (h2/h3'ten sonraki alt seviye). -->
+        <h4>Akdeniz Çit &amp; Panel</h4>
+        <p>
+          15 yılı aşkın tecrübemizle panel çit, çim çit, tel örgü ve bahçe kapısı
+          çözümlerinde kaliteli, dayanıklı ve estetik ürünler sunuyoruz.
+        </p>
+      </div>
+
+      <!-- ORTA SÜTUN: Hızlı Menü -->
+      <div class="footer-col">
+        <h4>Hızlı Menü</h4>
+        <!--
+          <ul>/<li> => Menü linklerini liste halinde tutmak için (header'daki nav gibi).
+          Bir liste olduğu için sırasız liste (<ul>) kullanmak en doğrusudur.
+        -->
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+
+      <!-- SAĞ SÜTUN: İletişim Bilgileri -->
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <!--
+          <address> => İletişim bilgileri için özel SEMANTİK etikettir.
+          Adres, telefon, e-posta gibi iletişim detaylarını içerir.
+          (Not: Tarayıcı bu etiketi varsayılan olarak italik gösterir; CSS ile değiştirilebilir.)
+        -->
+        <address>
+          <!-- <strong> => Metni kalın yapar ve "bu önemli" anlamı katar. -->
+          <p><strong>Adres:</strong> Örnek Mah. Çit Sok. No:1, Muster Stadt</p>
+
+          <!--
+            Telefon ve e-posta için <a> kullandık. Özel href önekleri sayesinde:
+            tel: => Telefondan tıklayınca arama başlatır.
+            mailto: => Tıklayınca e-posta programını açar.
+          -->
+          <p><strong>Telefon:</strong> <a href="tel:+490000000000">+49 000 000 00 00</a></p>
+          <p><strong>E-posta:</strong> <a href="mailto:info@akdenizcit.de">info@akdenizcit.de</a></p>
+          <p><strong>Çalışma Saatleri:</strong> Hafta içi 09:00 - 18:00</p>
+        </address>
+      </div>
+
+    </div>
+
+    <!--
+      EN ALT BANT: Telif Hakkı
+      <div class="footer-bottom"> => Footer'ın en altındaki ince şerit.
+      &copy; => "©" (telif hakkı) sembolünü yazmanın HTML'deki güvenli yoludur.
+    -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Akdeniz Çit &amp; Panel. Tüm Hakları Saklıdır.</p>
+    </div>
+
+  </footer>
+
 </body>
 </html>
