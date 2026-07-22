@@ -127,3 +127,198 @@ header button {
 header button:hover {
   background-color: #d18e00;
 }
+
+
+/* ============================================================
+   3) HERO SECTION (Karşılama Ekranı) STİLİ
+   ============================================================ */
+
+/* .hero => class="hero" olan <section>'ı seçer. */
+.hero {
+  /* Arka plan: koyu antrasit. İleride görsel eklemek istersen buraya
+     "background: url('resim.jpg')" da yazabilirsin. */
+  background-color: #323f4b;
+
+  color: #ffffff;              /* İçerideki yazılar açık renk (beyaz) */
+
+  /* İç boşluk: üst-alt 80px (bol dikey nefes), sağ-sol 20px.
+     Hero'yu "büyük ve etkileyici" gösteren şey bu bol dikey padding'tir. */
+  padding: 80px 20px;
+
+  /* text-align: center => İçindeki tüm metinleri (h1, p) ve satır-içi
+     elemanları yatayda ORTALAR. */
+  text-align: center;
+}
+
+/* Hero ana başlığı */
+.hero h1 {
+  font-size: 40px;             /* Büyük ve dikkat çekici */
+  margin-bottom: 20px;         /* Başlık ile paragraf arasına boşluk */
+
+  /* max-width + margin: auto => Başlığın çok uzun ekranlarda upuzun tek satır
+     olmasını engeller; belli bir genişlikte tutup ortalar (daha okunaklı). */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero açıklama paragrafı */
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;         /* Paragraf ile butonlar arasına boşluk */
+  max-width: 600px;            /* Paragrafı da ortada, okunaklı genişlikte tut */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Beyazı hafif soluklaştırıp (biraz saydam) başlıktan geri planda tutar. */
+  opacity: 0.9;
+}
+
+/* ---- HERO BUTONLARI ----
+   .hero-buttons => iki butonu saran kutu.
+   display: flex + justify-content: center => butonları yan yana ve ORTALI diz. */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;                   /* İki buton arasına boşluk */
+
+  /* flex-wrap: wrap => Ekran çok darsa (telefon) butonların alt alta
+     kaymasına izin ver. Böylece taşma olmaz. */
+  flex-wrap: wrap;
+}
+
+/* ---- ORTAK BUTON STİLİ (.btn) ----
+   Hem hero'daki hem ürünlerdeki tüm "btn" sınıflı elemanların ortak görünümü.
+   Not: <a> ve <button> etiketlerinin ikisine de uyması için yazıldı. */
+.btn {
+  padding: 12px 28px;          /* Dolgun buton */
+  border-radius: 25px;         /* Yuvarlak köşeler */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  /* text-decoration: none => <a> ile yapılan butonların alt çizgisini kaldırır. */
+  text-decoration: none;
+
+  /* display: inline-block => <a> etiketine padding/genişlik verebilmemizi sağlar
+     (satır-içi elemanlar normalde padding'i tam almaz). */
+  display: inline-block;
+
+  border: 2px solid transparent;   /* Ortak kenarlık kalınlığı (renk aşağıda) */
+  transition: all 0.3s;            /* Tüm hover geçişleri yumuşak olsun */
+}
+
+/* Birinci buton: DOLU / ana renk (dikkat çekici turuncu) */
+.btn-primary {
+  background-color: #f0a500;
+  color: #1f2933;                  /* Koyu yazı (kontrast) */
+  border-color: #f0a500;
+}
+.btn-primary:hover {
+  background-color: #d18e00;       /* Üzerine gelince koyulaşır */
+  border-color: #d18e00;
+}
+
+/* İkinci buton: ÇERÇEVELİ / şeffaf (outline) */
+.btn-secondary {
+  background-color: transparent;   /* Şeffaf arka plan */
+  color: #ffffff;                  /* Beyaz yazı */
+  border-color: #ffffff;           /* Beyaz çerçeve */
+}
+.btn-secondary:hover {
+  background-color: #ffffff;       /* Üzerine gelince içi dolar (beyaz) */
+  color: #1f2933;                  /* Yazı koyulaşır (renkler yer değiştirir) */
+}
+
+
+/* ============================================================
+   4) ÜRÜNLER BÖLÜMÜ (Products) STİLİ
+   ============================================================ */
+
+/* .products => Ürün kategorileri bölümünü seçer. */
+.products {
+  padding: 70px 40px;          /* Bölümü ferahlatan bol iç boşluk */
+  background-color: #f4f6f8;   /* Çok açık gri zemin (kartların beyazı öne çıksın) */
+  text-align: center;          /* Bölüm başlığını (h2) ortala */
+}
+
+/* Bölüm başlığı */
+.products h2 {
+  font-size: 32px;
+  margin-bottom: 40px;         /* Başlık ile kart ızgarası arasına boşluk */
+  color: #1f2933;
+}
+
+/* ---- KART IZGARASI (GRID) ----
+   .product-grid => 6 kartı saran kapsayıcı. */
+.product-grid {
+  display: grid;               /* Grid (ızgara) düzenini başlatır */
+
+  /* grid-template-columns => Kaç kolon olacağını ve genişliklerini belirler.
+     repeat(3, 1fr) => 3 EŞİT kolon (1fr = "kalan alanın 1 birimi").
+     Yani kartlar geniş ekranda 3'erli satırlar halinde dizilir. */
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;                   /* Kartlar arası boşluk (hem yatay hem dikey) */
+
+  /* max-width + margin: auto => Izgarayı çok geniş ekranlarda ortada tutar,
+     kartların aşırı yayılmasını engeller. */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---- TEK BİR ÜRÜN KARTI ---- */
+.product-card {
+  background-color: #ffffff;   /* Beyaz kart zemini */
+  border-radius: 10px;         /* Yuvarlatılmış köşeler */
+  padding: 30px 25px;          /* Kart içi boşluk */
+  text-align: center;
+
+  /* box-shadow => Karta hafif gölge verir (yerden hafif kalkmış hissi).
+     Değerler sırasıyla: yatay-kaydırma  dikey-kaydırma  bulanıklık  renk.
+     rgba'daki son değer (0.08) gölgenin saydamlığıdır (çok hafif). */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* transition => Aşağıdaki :hover'da değişen transform ve box-shadow'un
+     ANİDEN değil, 0.3 saniyede yumuşak gerçekleşmesini sağlar. */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Kart üzerine mouse gelince (:hover) tatlı animasyon */
+.product-card:hover {
+  /* transform: translateY(-8px) => Kartı 8px YUKARI kaydırır ("kalkıyor" hissi).
+     Y ekseninde negatif değer = yukarı. */
+  transform: translateY(-8px);
+
+  /* Gölgeyi büyütüp koyulaştır => kart "havaya kalkmış" gibi görünür. */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Kart başlığı */
+.product-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #1f2933;
+}
+
+/* Kart açıklaması */
+.product-card p {
+  font-size: 15px;
+  margin-bottom: 20px;         /* Açıklama ile "İncele" butonu arasına boşluk */
+  color: #52606d;             /* Yumuşak gri (başlıktan bir ton açık) */
+}
+
+/* Karttaki "Ürünleri İncele" linki (buton görünümlü).
+   .btn ortak stilini zaten alıyor; burada sadece renk verip küçültüyoruz. */
+.product-card .btn {
+  background-color: #1f2933;   /* Koyu antrasit buton */
+  color: #ffffff;
+  border-color: #1f2933;
+  padding: 10px 22px;
+  font-size: 14px;
+}
+.product-card .btn:hover {
+  background-color: #f0a500;   /* Üzerine gelince altın renge döner */
+  color: #1f2933;
+  border-color: #f0a500;
+}
