@@ -322,3 +322,155 @@ header button:hover {
   color: #1f2933;
   border-color: #f0a500;
 }
+
+
+/* ============================================================
+   5) İLETİŞİM BANDI (CTA) STİLİ
+   ============================================================ */
+
+/* .cta => Harekete geçirme bandını seçer. */
+.cta {
+  /* Dikkat çekici kurumsal arka plan (altın/turuncu vurgu rengi). */
+  background-color: #f0a500;
+
+  color: #1f2933;              /* Koyu yazı (altın zeminle güçlü kontrast) */
+  padding: 60px 20px;          /* Bol dikey boşluk => banda ağırlık kazandırır */
+  text-align: center;          /* Başlık, paragraf ve butonu ortala */
+}
+
+.cta h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  font-size: 18px;
+  margin-bottom: 30px;         /* Paragraf ile buton arasına boşluk */
+  max-width: 600px;            /* Okunaklı genişlikte, ortalı tut */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA butonu: koyu zeminli, altın bandın üzerinde belirgin dursun. */
+.cta .btn {
+  background-color: #1f2933;   /* Koyu buton */
+  color: #ffffff;
+  border-color: #1f2933;
+}
+.cta .btn:hover {
+  background-color: #111a22;   /* Üzerine gelince daha da koyulaşır */
+  border-color: #111a22;
+}
+
+
+/* ============================================================
+   6) FOOTER (ALT BİLGİ) STİLİ
+   ============================================================ */
+
+footer {
+  background-color: #1f2933;   /* Koyu antrasit arka plan */
+  color: #cbd2d9;             /* Açık gri yazı (koyu zeminde göz yormaz) */
+  padding: 50px 40px 20px;    /* üst 50 / sağ-sol 40 / alt 20 */
+}
+
+/* ---- ÜST KISIM: 3 SÜTUN ---- */
+.footer-columns {
+  display: grid;                       /* Sütunları ızgarayla dizeceğiz */
+  grid-template-columns: repeat(3, 1fr);  /* 3 eşit sütun */
+  gap: 30px;                           /* Sütunlar arası boşluk */
+  max-width: 1100px;                   /* Geniş ekranda ortada tut */
+  margin: 0 auto 40px;                 /* Alt kısımla arasına 40px boşluk */
+}
+
+/* Footer sütun başlıkları */
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;              /* Başlıklar tam beyaz (öne çıksın) */
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Orta sütundaki menü listesi */
+.footer-col ul {
+  list-style: none;            /* Madde noktalarını kaldır */
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;         /* Menü linkleri arasına dikey boşluk */
+}
+
+/* Footer içindeki tüm linkler (menü + telefon + e-posta) */
+.footer-col a {
+  color: #cbd2d9;             /* Açık gri */
+  text-decoration: none;       /* Alt çizgiyi kaldır */
+  transition: color 0.3s;
+}
+.footer-col a:hover {
+  color: #f0a500;              /* Üzerine gelince altın renge döner */
+}
+
+/* <address> etiketi tarayıcıda varsayılan olarak italik gelir; düzeltiyoruz. */
+.footer-col address {
+  font-style: normal;
+}
+
+/* ---- EN ALT BANT: Telif Hakkı ---- */
+.footer-bottom {
+  text-align: center;          /* Telif yazısını ortala */
+  padding-top: 20px;           /* Üstteki çizgi ile yazı arasına boşluk */
+
+  /* border-top => Üst kenara ince bir çizgi çizerek footer'ın üst kısmından
+     ayırır. rgba ile hafif saydam beyaz => nazik bir ayraç. */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 13px;
+  color: #9aa5b1;             /* Biraz daha soluk gri (ikincil bilgi) */
+}
+
+
+/* ============================================================
+   7) MOBİL UYUMLULUK (RESPONSIVE) — @media
+   ============================================================
+   @media => "Medya sorgusu". İçindeki kurallar SADECE belirtilen koşul
+   sağlandığında çalışır.
+   max-width: 768px => "Ekran genişliği 768px VE DAHA DAR ise" demektir
+   (tabletler ve telefonlar). Geniş ekranlarda bu blok görmezden gelinir.
+*/
+@media (max-width: 768px) {
+
+  /* ---- HEADER: alt alta ---- */
+  header {
+    flex-direction: column;    /* Flex çocuklarını yan yana yerine ALT ALTA diz */
+    gap: 15px;                 /* Logo, menü ve buton arasına dikey boşluk */
+  }
+
+  /* Menü öğeleri de dar ekranda alt alta gelsin ve ortalansın. */
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* ---- HERO: yazıları küçült ---- */
+  .hero h1 {
+    font-size: 28px;           /* Küçük ekranda dev başlık taşmasın */
+  }
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* ---- ÜRÜN KARTLARI: tek sütun ---- */
+  .product-grid {
+    grid-template-columns: 1fr;   /* 3 kolon yerine TEK kolon => kartlar alt alta */
+  }
+
+  /* ---- FOOTER: tek sütun ---- */
+  .footer-columns {
+    grid-template-columns: 1fr;   /* 3 sütun yerine tek sütun */
+    text-align: center;           /* Dar ekranda içerikleri ortala */
+  }
+}
