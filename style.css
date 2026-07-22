@@ -105,27 +105,44 @@ nav a:hover {
   color: #f0a500;   /* Üzerine gelince altın/turuncu renge döner (dikkat çeker) */
 }
 
-/* ---- "HIZLI TEKLİF AL" BUTONU ---- */
-/* header button => Header içindeki <button> etiketini seçer. */
-header button {
+/* ---- "HIZLI TEKLİF AL" BUTONU ----
+   Artık bir <button> değil, class="btn-header" olan bir <a> (link).
+   Bu yüzden seçiciyi .btn-header yaptık ve linke özel iki kural ekledik
+   (text-decoration ve inline-block). */
+.btn-header {
   background-color: #f0a500;   /* Dikkat çekici altın/turuncu arka plan */
   color: #1f2933;              /* Buton yazısı koyu (arka planla kontrast) */
-  border: none;                /* Butonun varsayılan kenarlığını kaldır */
+  border: none;                /* Kenarlık yok */
   padding: 10px 20px;          /* İç boşluk => butonu dolgun/tıklanabilir yapar */
   border-radius: 25px;         /* Köşeleri yuvarlat (25px => hap/pill görünümü) */
   font-size: 16px;
   font-weight: bold;
-
-  /* cursor: pointer => Fare butonun üzerine gelince "el işareti"ne döner;
-     kullanıcıya "burası tıklanabilir" mesajını verir. */
   cursor: pointer;
+
+  /* <a> etiketi için gerekli iki ek kural: */
+  text-decoration: none;       /* Linkin alt çizgisini kaldır */
+  display: inline-block;       /* Linke padding/boyut verebilmek için blok gibi davransın */
 
   transition: background-color 0.3s;   /* Hover renk geçişi yumuşak olsun */
 }
 
 /* Butonun üzerine gelince rengini biraz koyulaştır (tıklanabilir hissi). */
-header button:hover {
+.btn-header:hover {
   background-color: #d18e00;
+}
+
+/* ---- HAMBURGER MENÜ BUTONU ---- */
+.menu-toggle {
+  /* display: none => Butonu MASAÜSTÜNDE GİZLE. Aşağıdaki @media içinde
+     mobilde tekrar görünür yapacağız. Menü zaten geniş ekranda açık duruyor. */
+  display: none;
+
+  background: none;            /* Arka plan yok (sade ikon görünümü) */
+  border: none;                /* Kenarlık yok */
+  color: #ffffff;              /* İkon (☰) beyaz */
+  font-size: 28px;             /* İkonu büyüt (kolay tıklanır olsun) */
+  cursor: pointer;
+  line-height: 1;              /* İkonun dikeyde fazla yer kaplamasını engeller */
 }
 
 
@@ -464,17 +481,46 @@ footer {
 */
 @media (max-width: 768px) {
 
-  /* ---- HEADER: alt alta ---- */
+  /* ---- HEADER: hamburger menü düzeni ----
+     flex-wrap: wrap => Header'ın çocukları sığmazsa ALT SATIRA taşabilir.
+     Böylece 1. satırda logo + hamburger, açılan menü ise alt satıra geçer. */
   header {
-    flex-direction: column;    /* Flex çocuklarını yan yana yerine ALT ALTA diz */
-    gap: 15px;                 /* Logo, menü ve buton arasına dikey boşluk */
+    flex-wrap: wrap;
   }
 
-  /* Menü öğeleri de dar ekranda alt alta gelsin ve ortalansın. */
+  /* Hamburger butonunu mobilde GÖRÜNÜR yap (masaüstünde gizliydi). */
+  .menu-toggle {
+    display: block;
+  }
+
+  /*
+    <nav> menüsünü mobilde VARSAYILAN OLARAK GİZLE.
+    Kullanıcı hamburger'a basınca script.js "active" class'ını ekleyecek
+    ve alttaki ".active" kuralı menüyü tekrar görünür yapacak.
+  */
+  nav {
+    display: none;             /* Menü başlangıçta kapalı */
+    width: 100%;               /* Açılınca tüm satırı kaplasın */
+    order: 3;                  /* Logo ve hamburgerin ALTINA insin */
+  }
+
+  /* Hamburger'a basılınca (JS "active" ekler) menü görünür olur. */
+  nav.active {
+    display: block;
+  }
+
+  /* Menü öğeleri dar ekranda alt alta gelsin ve ortalansın. */
   nav ul {
     flex-direction: column;
     text-align: center;
     gap: 10px;
+    padding: 15px 0;           /* Açılan menünün üst/altına biraz nefes */
+  }
+
+  /* "Hızlı Teklif Al" butonunu mobilde gizle: menüde zaten İletişim linki var,
+     ekranı kalabalıklaştırmasın. (İstersen bu kuralı silip görünür bırakabilirsin.) */
+  .btn-header {
+    display: none;
   }
 
   /* ---- HERO: yazıları küçült ---- */

@@ -70,6 +70,18 @@
       <a href="index.html">Akdeniz Çit &amp; Panel</a>
     </div>
 
+    <!-- HAMBURGER MENÜ BUTONU (sadece mobilde görünür) -->
+    <!--
+      ☰ => "hamburger" ikonu (üç yatay çizgi). Mobilde menüyü açıp kapatır.
+      class="menu-toggle" => Bu butonu CSS ile gizlemek/göstermek ve JS ile
+                             yakalayıp menüyü açıp kapatmak için kullanacağız.
+      aria-label => Ekran okuyucuların bu butonu "Menüyü aç/kapat" diye
+                    seslendirmesini sağlar (ikonun kendisi metin içermediği için).
+      NOT: Bu buton tek başına ÇALIŞMAZ; menüyü açıp kapatan mantık script.js
+           dosyasındadır (sayfanın en altında bağlıdır).
+    -->
+    <button class="menu-toggle" aria-label="Menüyü aç/kapat">☰</button>
+
     <!-- 2) ORTA: Gezinti Menüsü -->
     <!--
       <nav> => "Navigation" (gezinti) kelimesinin kısaltmasıdır.
@@ -92,10 +104,11 @@
 
     <!-- 3) SAĞ TARAF: Hızlı Teklif Al Butonu -->
     <!--
-      <button> => Tıklanabilir bir düğme oluşturur.
-      Genellikle bir işlem başlatmak (form gönderme, pencere açma vb.) için kullanılır.
+      Artık <button> yerine <a> (link) kullanıyoruz. Çünkü bu düğme bir İŞLEM
+      başlatmıyor; kullanıcıyı iletisim.html sayfasına YÖNLENDİRİYOR.
+      Yönlendirme = link. class="btn-header" ile CSS'te buton gibi göstereceğiz.
     -->
-    <button type="button">Hızlı Teklif Al</button>
+    <a href="iletisim.html" class="btn-header">Hızlı Teklif Al</a>
 
   </header>
 
@@ -333,6 +346,14 @@
     </div>
 
   </footer>
+
+  <!--
+    <script> => Sayfaya JavaScript (davranış/etkileşim) kodu ekler.
+    src="script.js" => Harici JS dosyamızı bağlar.
+    </body>'den HEMEN ÖNCE koymak iyi bir pratiktir: Böylece JS çalışmadan önce
+    tüm HTML yüklenmiş olur (buton gibi elemanlar hazır olur, JS onları bulabilir).
+  -->
+  <script src="script.js"></script>
 
 </body>
 </html>
