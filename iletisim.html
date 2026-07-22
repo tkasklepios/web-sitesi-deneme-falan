@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bu sayfanın kendi başlığı (tarayıcı sekmesinde görünür). -->
+  <title>İletişim - Akdeniz Çit & Panel</title>
+
+  <!-- AYNI CSS dosyasını bağlıyoruz. Böylece header, footer, buton vb. tüm ortak
+       stiller bu sayfada da geçerli olur; tek bir style.css tüm siteyi yönetir. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER (index.html ile BİREBİR AYNI)
+       Aynı olması, sitenin her sayfasında tutarlı bir üst menü sağlar.
+       ============================================================ -->
+  <header>
+
+    <!-- Logo: tıklayınca ana sayfaya döner. -->
+    <div class="logo">
+      <a href="index.html">Akdeniz Çit &amp; Panel</a>
+    </div>
+
+    <!-- Gezinti menüsü -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="kurumsal.html">Kurumsal</a></li>
+        <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+    </nav>
+
+    <button type="button">Hızlı Teklif Al</button>
+
+  </header>
+
+  <!-- ============================================================
+       MAIN (ANA İÇERİK)
+       <main> => Sayfanın ASIL/ana içeriğini saran semantik etikettir.
+       Header ve footer DIŞINDA kalan, o sayfaya ÖZGÜ içerik buraya yazılır.
+       Bir sayfada yalnızca BİR <main> bulunur.
+       ============================================================ -->
+  <main>
+
+    <!-- ---------- 1) SAYFA BAŞLIĞI ALANI ---------- -->
+    <!--
+      <section class="page-header"> => Sayfanın en üstündeki başlık şerididir.
+      İç sayfalarda (iletişim, kurumsal vb.) "burası neresi?" bilgisini verir.
+    -->
+    <section class="page-header">
+      <!-- Bu sayfanın ana başlığı => <h1>. Her sayfada bir tane h1 olur. -->
+      <h1>İletişim &amp; Fiyat Teklifi</h1>
+      <p>Projeniz için ölçülerinizi iletin, size en uygun teklifi hazırlayalım.</p>
+    </section>
+
+    <!-- ---------- 2) İLETİŞİM ALANI (2 SÜTUN) ---------- -->
+    <section class="contact-section">
+
+      <!--
+        <div class="contact-container"> => Sol ve sağ sütunu saran kutu.
+        İleride CSS ile bu ikisini yan yana (2 sütun) dizeceğiz.
+      -->
+      <div class="contact-container">
+
+        <!-- ===== SOL SÜTUN: İletişim Bilgileri ===== -->
+        <div class="contact-info">
+          <h2>Bize Ulaşın</h2>
+
+          <!-- İletişim bilgileri için semantik <address> etiketi. -->
+          <address>
+            <p><strong>Adres:</strong> Örnek Mah. Çit Sok. No:1, Muster Stadt</p>
+            <p><strong>Telefon:</strong> <a href="tel:+490000000000">+49 000 000 00 00</a></p>
+            <p><strong>E-posta:</strong> <a href="mailto:info@akdenizcit.de">info@akdenizcit.de</a></p>
+            <p><strong>Çalışma Saatleri:</strong> Hafta içi 09:00 - 18:00</p>
+          </address>
+
+          <!--
+            Tıklanabilir aksiyon butonları.
+            WhatsApp: https://wa.me/<numara> formatı, sohbeti direkt açar
+            (numara başında + ve boşluk OLMADAN, uluslararası formatta yazılır).
+            Telefon: tel: öneki ile mobilde arama başlatır.
+            target="_blank" => WhatsApp linkini YENİ sekmede açar.
+          -->
+          <div class="contact-buttons">
+            <a href="https://wa.me/490000000000" target="_blank" class="btn btn-whatsapp">WhatsApp'tan Yaz</a>
+            <a href="tel:+490000000000" class="btn btn-primary">Hemen Ara</a>
+          </div>
+        </div>
+
+        <!-- ===== SAĞ SÜTUN: Teklif Formu ===== -->
+        <!--
+          <form> => Kullanıcıdan bilgi TOPLAYAN alanları (input, select...) saran etikettir.
+          action => Form gönderilince verinin gideceği adres/sayfadır. Şimdilik "#"
+                    (aynı sayfa) bıraktık; ileride bir e-posta servisi/PHP bağlanabilir.
+          method="post" => Verilerin gönderim yöntemi (post = veriyi gizli/gövdede taşır).
+        -->
+        <form class="contact-form" action="#" method="post">
+          <h2>Teklif Formu</h2>
+
+          <!--
+            <label> => Bir form alanının ETİKETİ/açıklamasıdır.
+            for="ad" => Bu etiketi, id="ad" olan input'a BAĞLAR. Etikete tıklayınca
+                        ilgili kutu seçilir; erişilebilirlik için çok önemlidir.
+          -->
+          <label for="ad">Ad Soyad</label>
+          <!--
+            <input> => Tek satırlık veri giriş kutusu (tek/kapanışsız etiket).
+            type="text" => Serbest metin girişi.
+            name => Form gönderilince verinin "anahtar" adı (sunucu bununla tanır).
+            required => Bu alan BOŞ bırakılırsa form gönderilemez (zorunlu alan).
+            placeholder => Kutu boşken içinde görünen soluk ipucu metni.
+          -->
+          <input type="text" id="ad" name="ad" required placeholder="Adınız ve soyadınız">
+
+          <label for="iletisim">Telefon / E-posta</label>
+          <input type="text" id="iletisim" name="iletisim" required placeholder="Size nasıl dönelim?">
+
+          <label for="urun">İlgilendiğiniz Ürün</label>
+          <!--
+            <select> => Açılır (dropdown) liste oluşturur.
+            İçindeki her seçenek bir <option> etiketidir.
+            İlk <option> (value="") "seçiniz" amaçlı bir yer tutucudur.
+          -->
+          <select id="urun" name="urun">
+            <option value="">-- Ürün Seçiniz --</option>
+            <option value="cit-setleri">Çit Setleri</option>
+            <option value="cit-panelleri">Çit Panelleri</option>
+            <option value="cit-direkleri">Çit Direkleri</option>
+            <option value="bahce-kapilari">Bahçe Kapıları</option>
+            <option value="gabion-citler">Gabion Çitler</option>
+            <option value="mahremiyet-seritleri">Mahremiyet Şeritleri</option>
+            <option value="diger">Diğer</option>
+          </select>
+
+          <label for="metraj">Tahmini Metraj / Ölçü</label>
+          <input type="text" id="metraj" name="metraj" placeholder="Örn. 50 Metre">
+
+          <label for="mesaj">Mesajınız / Detaylar</label>
+          <!--
+            <textarea> => ÇOK satırlı metin giriş kutusu (uzun mesajlar için).
+            <input>'tan farkı: birden fazla satır kabul eder.
+            rows => Başlangıçta kaç satır yüksekliğinde görüneceğini belirtir.
+          -->
+          <textarea id="mesaj" name="mesaj" rows="5" placeholder="Projenizle ilgili detaylar..."></textarea>
+
+          <!--
+            type="submit" => Bu buton FORMU GÖNDERİR. Tıklanınca tarayıcı önce
+            required alanları kontrol eder, sonra form verisini action adresine yollar.
+          -->
+          <button type="submit" class="btn btn-primary">Teklif Gönder</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER (index.html ile BİREBİR AYNI)
+       ============================================================ -->
+  <footer>
+    <div class="footer-columns">
+
+      <!-- SOL SÜTUN: Hakkımızda -->
+      <div class="footer-col">
+        <h4>Akdeniz Çit &amp; Panel</h4>
+        <p>
+          15 yılı aşkın tecrübemizle panel çit, çim çit, tel örgü ve bahçe kapısı
+          çözümlerinde kaliteli, dayanıklı ve estetik ürünler sunuyoruz.
+        </p>
+      </div>
+
+      <!-- ORTA SÜTUN: Hızlı Menü -->
+      <div class="footer-col">
+        <h4>Hızlı Menü</h4>
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+
+      <!-- SAĞ SÜTUN: İletişim Bilgileri -->
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <address>
+          <p><strong>Adres:</strong> Örnek Mah. Çit Sok. No:1, Muster Stadt</p>
+          <p><strong>Telefon:</strong> <a href="tel:+490000000000">+49 000 000 00 00</a></p>
+          <p><strong>E-posta:</strong> <a href="mailto:info@akdenizcit.de">info@akdenizcit.de</a></p>
+          <p><strong>Çalışma Saatleri:</strong> Hafta içi 09:00 - 18:00</p>
+        </address>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Akdeniz Çit &amp; Panel. Tüm Hakları Saklıdır.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
