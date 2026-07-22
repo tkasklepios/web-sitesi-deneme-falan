@@ -294,6 +294,28 @@ header button:hover {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* ---- KART GÖRSELİ ---- */
+.product-card img {
+  /* width: 100% => Görseli kartın (padding içi) tam genişliğine yay. */
+  width: 100%;
+
+  /* height => Tüm görsellere SABİT yükseklik ver. Böylece farklı boyutlardaki
+     fotoğraflar bile aynı yükseklikte durur ve kartlar hizalı görünür. */
+  height: 200px;
+
+  /* object-fit: cover => Görseli, oranını bozmadan (yamultmadan) verilen
+     kutuyu TAMAMEN dolduracak şekilde kırpar. Fotoğraflar için idealdir;
+     "ezilmiş/gerilmiş" görüntüyü engeller. */
+  object-fit: cover;
+
+  border-radius: 8px;          /* Görselin köşelerini de hafif yuvarlat */
+  margin-bottom: 20px;         /* Görsel ile başlık arasına boşluk */
+
+  /* display: block => Resmin altında oluşan minik boşluğu giderir
+     (img varsayılan olarak satır-içi elemandır). */
+  display: block;
+}
+
 /* Kart başlığı */
 .product-card h3 {
   font-size: 20px;
